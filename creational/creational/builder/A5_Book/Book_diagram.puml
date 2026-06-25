@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Book{
+String tuaSach, tacGia
+    int soTrang
+    List<String> chuong
+    - Book(Builder b)
+    + toString()
+}
+class Builder{
+    String tuaSach, tacGia
+    int soTrang
+    List<String> chuong
+    + Builder buidTS(String tuaSach)
+    + Builder buidTG(String tacGia)
+    + Builder buidST(int soTrang)
+    + Builder buidChuong(String chuong)
+    + Book build();
+}
+Builder ..> Book
+
+@enduml

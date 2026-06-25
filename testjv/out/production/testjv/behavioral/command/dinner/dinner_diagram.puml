@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Client
+
+class Waitress{
+    + takeOrders(List<IOrder> orders)
+    + void orderUp()
+}
+
+interface IOrder{
+    + void oder()
+}
+
+class Order{
+    - String foodName
+    - int quality
+}
+
+class Chef{
+    String name
+    + void cook(String foodName)
+}
+
+Client ..> Waitress
+Waitress o--> IOrder :orthers
+Order ..|> IOrder
+Order --> Chef:chef
+Waitress-->Chef:chef
+@enduml

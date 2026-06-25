@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class ChuoiMenhGiaFactory{
+     #{abstract} ATM_TheoMenhGia getChuoiMenhGia(int menhGia)
+     + void rutTien(int soTien, int menhGiaCaoNhat)
+}
+
+class ChuoiMenhGia
+
+abstract class ATM_TheoMenhGia{
+    int menhGia
+    + {abstract} ATM_TheoMenhGia keTiep(ATM_TheoMenhGia keTiep)
+    + void rutTien(int soTien)
+}
+
+class MenhGiaThapNhat
+
+class MenhGia
+
+ChuoiMenhGiaFactory<|--ChuoiMenhGia
+ChuoiMenhGia*-->ATM_TheoMenhGia : m500, m100, ... m1
+ATM_TheoMenhGia<|--MenhGia
+ATM_TheoMenhGia<--MenhGia:keTiep
+ATM_TheoMenhGia<|--MenhGiaThapNhat
+
+@enduml

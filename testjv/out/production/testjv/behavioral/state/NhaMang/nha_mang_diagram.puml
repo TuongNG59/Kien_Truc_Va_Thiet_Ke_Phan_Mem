@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class NhaMang{
+    int balance
+    + void napTien(int soTien)
+    + void thucHienCuocGoi(int soGiay)
+    + void inThongTin()
+    + void setState(NhaMangState state)
+}
+
+class Normal
+
+class Silver
+
+class Gold
+
+interface NhaMangState{
+    + void napTienHandle(int soTien, NhaMang nhamang)
+    + void thucHienCuocGoiHandle(int soGiay, NhaMang nhamang)
+    + void inThongTinHandle(NhaMang nhamang)
+}
+
+NhaMang --> NhaMangState : state
+NhaMangState <|.. Normal
+NhaMangState <|.. Silver
+NhaMangState <|.. Gold
+
+@enduml

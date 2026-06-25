@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+Interface Tokenize{
+List<String> tokenize()
+}
+
+class TachTu{
+String s;
+}
+
+abstract class TokenDecorator{
+List<String> tokenize()
+}
+
+class BoTuDung{
+List<String> tuDungs;
+}
+
+class BoDauCau{
+
+}
+
+Tokenize<|..TachTu
+Tokenize<|..TokenDecorator
+TokenDecorator<|--BoTuDung
+TokenDecorator<|--BoDauCau
+Tokenize<--TokenDecorator:tokens
+@enduml

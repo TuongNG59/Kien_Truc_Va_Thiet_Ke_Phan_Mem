@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class TiGia{
+    + void attach(TiGiaListener listener)
+    + void detach(TiGiaListener listener)
+    + void thayDoiTiGia(float delta))
+}
+interface TiGiaListener{
+    void listen(float delta)
+}
+
+abstract class NhaDauTu
+class NhaDauTuA
+class NhaDauTuB
+
+TiGiaListener <|.. NhaDauTu
+TiGia o--> TiGiaListener: listeners
+NhaDauTu --> TiGia: tiGia
+NhaDauTu <|-- NhaDauTuA
+NhaDauTu <|-- NhaDauTuB
+
+@enduml

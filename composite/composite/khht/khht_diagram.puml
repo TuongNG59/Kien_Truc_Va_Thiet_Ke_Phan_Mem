@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class KeHoachHocTap{
+    String ten
+    + {abstract} KeHoachHocTap them(KeHoachHocTap kh)
+    + {abstract} void xoa(KeHoachHocTap kh)
+    + {abstract} int getHocPhi()
+    + {abstract} int getSoTC()
+    + {abstract} String thongTin()
+}
+class KHHTCHung
+class MonHoc{
+    int soTC, hocPhi
+}
+KHHTCHung --|> KeHoachHocTap
+KHHTCHung *--> KeHoachHocTap:khhts
+MonHoc --|> KeHoachHocTap
+
+@enduml

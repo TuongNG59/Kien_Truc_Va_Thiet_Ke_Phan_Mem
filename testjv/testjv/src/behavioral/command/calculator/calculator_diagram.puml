@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Client
+
+class CasioCalculator
+{
+    + void undo()
+    + void redo()
+    + void clear()
+    + void compute(char operator, float operand)
+}
+
+class CalculatorCommand
+{
+    - char operator
+    - char operand
+    + public CalculatorCommand(operator, operand, handler)
+    - char undoOperator()
+}
+
+class CommandHandler
+{
+    - float result
+    + void handle(char operator, float operand)
+}
+
+interface ICommand
+{
+    + void execute()
+    + void unexecute()
+}
+
+CasioCalculator <-- Client
+CasioCalculator*-->ICommand:undos
+CasioCalculator*-->ICommand:redos
+CasioCalculator-->CommandHandler:handler
+ICommand<|..CalculatorCommand
+CommandHandler<--CalculatorCommand:handler
+
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface CalculatorState{
+    + handle (Calculator cal, String input) : void
+}
+
+class Calculator{
+    - a: double
+    - b: double
+    - op : char
+    - state : calculatorState
+    + Calculator()
+    + setState(CalculatorState state) : void
+    + input(String input) : void
+}
+
+class InputState1
+class InputOperationState
+class InputState2
+class OperateState
+
+Calculator --> CalculatorState : state
+CalculatorState <|.. InputState1
+CalculatorState <|.. InputOperationState
+CalculatorState <|.. InputState2
+CalculatorState <|.. OperateState
+
+
+@enduml

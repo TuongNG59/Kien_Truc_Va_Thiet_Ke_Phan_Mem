@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ATM{
+    + void nhanThe(ATMListener taikhoan)
+    + void traThe()
+    + void rutTien(int Tien)
+}
+
+interface ATMListener{
+    + bool checkBalance(int Tien);
+    + void thongBao(int Tien, bool b);
+}
+
+class TaiKhoan{
+    - int soDu;
+    + void nhetThe();
+    + void nhanThe();
+}
+
+ATM-->ATMListener: taikhoan
+ATMListener<|..TaiKhoan
+TaiKhoan-->ATM:atm
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ATM{
+    int balance
+    void moneyIn(int amount)
+    void moneyOut()
+}
+
+class Ready
+
+class Limited
+
+class NoMoney
+
+interface ATMState{
+    void moneyInHandle(int amount, ATM atm)
+    void moneyOutHandle(ATM atm)
+}
+
+ATM --> ATMState : state
+ATMState <|.. Ready
+ATMState <|.. Limited
+ATMState <|.. NoMoney
+
+
+@enduml

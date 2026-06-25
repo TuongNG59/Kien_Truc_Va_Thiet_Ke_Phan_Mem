@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class CaffeineBeverage{
+    {abstract} prepareRecipe()
+    boilWater()
+    pourInCup()
+}
+
+class Coffee{
+prepareRecipe()
+brewCoffeeGrinds()
+addSugarAndMilk()
+}
+
+class Tea{
+prepareRecipe()
+steepTeaBag()
+addLemon()
+}
+
+CaffeineBeverage<|--Coffee
+CaffeineBeverage<|--Tea
+
+@enduml

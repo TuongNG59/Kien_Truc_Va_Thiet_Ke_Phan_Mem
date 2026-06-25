@@ -1,0 +1,44 @@
+package structural.composite.folder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Folder extends AbstractFile{
+    List<AbstractFile> files = new ArrayList<>();
+    public Folder(String name, String dateCreated) {
+        super(name, dateCreated);
+    }
+
+    @Override
+    public String getTreeFolder(String preStr) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(preStr).append(this.name);
+
+        for(var file:files){
+
+            builder.append("\n").append(file.getTreeFolder(preStr + "  "));
+
+        }
+        return builder.toString();
+    }
+
+    @Override
+    public String getPath() {
+        return super.getPath();
+    }
+
+    @Override
+    public void addItem(AbstractFile item) {
+        item.path = this.path + "\\" + item.path;
+        files.add(item);
+    }
+
+    @Override
+    public void removeItem(AbstractFile item) {
+        if(files.contains(item)){
+            files.remove(item);
+            return;
+        }
+
+    }
+}

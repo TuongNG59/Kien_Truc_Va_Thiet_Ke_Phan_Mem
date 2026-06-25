@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+abstract class BieuThuc{
+float giaTri()
+String bieuThuc()
+}
+
+class BieuThucDonGian{
+float toanHang
+<<Override>>float giaTri()
+<<Override>>String bieuThuc()
+}
+
+class BieuThucDecorator{
+<<Override>>float giaTri()
+<<Override>>String bieuThuc()
+}
+
+class Tru{
+float toanHang
+<<Override>>float giaTri()
+}
+
+class Chia{
+float toanHang
+<<Override>>float giaTri()
+<<Override>>String bieuThuc()
+}
+
+class Cong{
+float toanHang
+<<Override>>float giaTri()
+<<Override>>String bieuThuc()
+}
+
+class Nhan{
+float toanHang
+<<Override>>float giaTri()
+<<Override>>String bieuThuc()
+}
+
+BieuThuc<|--BieuThucDonGian
+BieuThuc<|--BieuThucDecorator
+BieuThuc<..BieuThucDecorator:bieuThuc
+BieuThucDecorator<|--Tru
+BieuThucDecorator<|--Cong
+BieuThucDecorator<|--Chia
+BieuThucDecorator<|--Nhan
+@enduml

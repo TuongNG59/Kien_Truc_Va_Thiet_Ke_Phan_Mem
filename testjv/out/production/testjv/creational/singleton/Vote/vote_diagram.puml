@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Election{
+    -int trump, biden
+    - {static} Election instance
+    - Election()
+    + {static} Election getInstance()
+    + void vote(Candidate c)
+
+}
+
+class User{
+   - String userID
+   + void vote (Candidate c)
+}
+
+enum Candidate{
+    DONALD TRUMP
+    JOE BIDEN
+
+}
+
+User ..> Election
+User ..> Candidate
+Election ..> Candidate
+
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class DataAccessUpgrade{
+    - {static} Dictionnary<String, DataAccessUpgrade> instances
+    - List<SanPham> sps
+    - DataAccessUpgrade()
+    + {static} DataAccessUpgrade getInstance (String tag)
+    + void them(SanPham s)
+    + void display()
+   }
+class SanPham{
+      - String masp,tensp
+      - int sl
+      - long dongia
+}
+
+DataAccessUpgrade *--> SanPham: sps
+@enduml
